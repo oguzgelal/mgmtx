@@ -1,0 +1,17 @@
+
+.normal {
+  font-family: Georgia, sans-serif;
+  margin-top: 3em;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  margin: auto;
+}
+
+.counter {
+  margin-bottom: 20px;
+}
