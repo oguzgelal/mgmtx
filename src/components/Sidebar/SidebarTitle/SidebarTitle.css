@@ -1,0 +1,17 @@
+@value theme: "../../../themes/default.css";
+
+@value sidebarTitleMarginBottom from theme;
+@value sidebarTitlePadding from theme;
+
+.sidebarTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: sidebarTitleMarginBottom;
+  padding: 0 sidebarTitlePadding;
+}
+.sidebarTitleText {
+  flex-grow: 1;
+}
+.sidebarTitleIcon:hover {
+  cursor: pointer;
+}

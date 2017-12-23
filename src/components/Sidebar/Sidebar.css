@@ -1,0 +1,47 @@
+@value theme: "../../themes/default.css";
+
+@value light, lightGray from theme;
+@value sidebarHeaderHeight from theme;
+@value sidebarHeaderBgColor from theme;
+@value sidebarWidth from theme;
+@value sidebarHeaderPadding from theme;
+@value sidebarDividerMargin from theme;
+@value sidebarHeaderColor from theme;
+@value sidebarHeaderFontsize from theme;
+@value sidebarDividerWidth from theme;
+
+.sidebar {
+  background-color: light;
+  border-right: none;
+}
+
+.menu {
+  border-right: none;
+}
+
+.divider {
+  width: sidebarDividerWidth;
+  margin: sidebarDividerMargin 0;
+}
+
+.header {
+  composes: menu;
+  display: flex;
+  align-items: center;
+  height: sidebarHeaderHeight;
+  background-color: sidebarHeaderBgColor;
+  padding: 0 sidebarHeaderPadding;
+}
+
+.headerText {
+  flex-grow: 1;
+  color: sidebarHeaderColor;
+  font-size: sidebarHeaderFontsize;
+}
+
+.headerIcon {
+  margin: auto;
+}
+.headerIcon:hover {
+  cursor: pointer;
+}

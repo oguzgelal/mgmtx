@@ -1,0 +1,16 @@
+@value light: #fff;
+@value lightGray: #e8e8e8;
+@value dark: #000;
+
+@value pageBackground: light;
+
+@value sidebarWidth: 280;
+@value sidebarHeaderHeight: 7em;
+@value sidebarHeaderBgColor: light;
+@value sidebarHeaderPadding: 1.6em;
+@value sidebarDividerMargin: 1.2em;
+@value sidebarHeaderColor: dark;
+@value sidebarHeaderFontsize: 12.5pt;
+@value sidebarDividerWidth: 100%;
+@value sidebarTitleMarginBottom: 1em;
+@value sidebarTitlePadding: 12px;

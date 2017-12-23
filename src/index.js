@@ -1,35 +1,43 @@
 import dva from 'dva';
 import { message } from 'antd';
-import createHistory from 'history/createBrowserHistory';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import createFilter from 'redux-persist-transform-filter';
-import localForage from 'localforage'
+import localForage from 'localforage';
+import { Router } from 'dva/router';
+
+// Components
+import Routes from './routes';
+import history from './config/history';
 
 // Models
 import CounterModel from './models/counterModel';
 
 // Other
-import Router from './router';
-
 import './index.css';
 
-// 1. Initialize
+// Initialize
 const app = dva({
-  history: createHistory(),
+  history,
   extraEnhancers: [autoRehydrate()],
   onError(e) { message.error(e.message, 3); },
 });
 
-// 2. Plugins
+// Plugins
 // app.use({});
 
-// 3. Model
+// Model
 app.model(CounterModel);
 
-// 4. Router
-app.router(Router);
+// Router
+app.router(() => {
+  return (
+    <Router history={history}>
+      <Routes />
+    </Router>
+  );
+});
 
-// 5. Start
+// Start
 app.start('#root');
 
 // Persist redux store

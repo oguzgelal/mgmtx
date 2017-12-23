@@ -1,5 +1,7 @@
+@value theme: './themes/default.css';
+
+@value lightGray from theme;
 
 html, body, :global(#root) {
   height: 100%;
 }
-

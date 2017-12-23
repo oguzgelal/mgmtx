@@ -1,0 +1,8 @@
+@value theme: '../../themes/default.css';
+
+@value pageBackground from theme;
+
+.footer {
+  text-align: center;
+  background-color: pageBackground;
+}
