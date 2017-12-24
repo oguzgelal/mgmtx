@@ -21,7 +21,9 @@
 
 .divider {
   width: sidebarDividerWidth;
-  margin: sidebarDividerMargin 0 !important;
+  margin: auto !important;
+  margin-top: sidebarDividerMargin !important;
+  margin-bottom: sidebarDividerMargin !important;
 }
 .dividerTop {
   margin-top: 0 !important;

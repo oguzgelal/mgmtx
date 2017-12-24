@@ -2,12 +2,14 @@
 
 @value sidebarTitleMarginBottom from theme;
 @value sidebarTitlePadding from theme;
+@value sidebarDividerWidth from theme;
 
 .sidebarTitle {
   display: flex;
   align-items: center;
+  width: sidebarDividerWidth;
+  margin: auto;
   margin-bottom: sidebarTitleMarginBottom;
-  padding: 0 sidebarTitlePadding;
 }
 .sidebarTitleText {
   flex-grow: 1;

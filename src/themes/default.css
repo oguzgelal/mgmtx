@@ -9,12 +9,11 @@
 @value sidebarHeaderHeight: 7em;
 @value sidebarHeaderBgColor: light;
 @value sidebarHeaderPadding: 1.6em;
-@value sidebarDividerMargin: 1em;
+@value sidebarDividerMargin: 1.2em;
 @value sidebarHeaderColor: dark;
 @value sidebarHeaderFontsize: 12.5pt;
-@value sidebarDividerWidth: 100%;
-@value sidebarTitleMarginBottom: 1em;
-@value sidebarTitlePadding: 12px;
+@value sidebarDividerWidth: 88%;
+@value sidebarTitleMarginBottom: 1.2em;
 
 @value pagePadding: 5em;
 
