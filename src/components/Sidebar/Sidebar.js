@@ -25,8 +25,8 @@ class Sidebar extends React.Component {
           icon: 'appstore-o',
         },
         {
-          title: 'Variables',
-          path: '/variables',
+          title: 'Values',
+          path: '/values',
           icon: 'book',
         },
         {
@@ -102,6 +102,18 @@ class Sidebar extends React.Component {
     history.push(e.key);
   }
 
+  // Get array of highlighted items
+  getHighlighted = (path) => {
+    let t = ''; let c = [];
+    path.split('/').map(p => {
+      if (p !== '') {
+        t += `/${p}`;
+        c.push(t);
+      }
+    });
+    return c;
+  }
+
   // Create main menu items
   createMenuItems = (items) => {
     if (!items) { return null; }
@@ -128,9 +140,7 @@ class Sidebar extends React.Component {
       if (dashboard.group) {
         res.push(
           <Menu.SubMenu key={dashboard.id} title={<span><Icon type="folder" /><span>{dashboard.title}</span></span>}>
-            {
-              this.createDashboardItems(dashboard.children)
-            }
+            {this.createDashboardItems(dashboard.children)}
           </Menu.SubMenu>
         );
       }
@@ -165,12 +175,11 @@ class Sidebar extends React.Component {
     // Sidebar main items
     const menuItems = this.createMenuItems(this.state.items);
 
-
     // Sidebar dashboards title
     const dashboardsTitle = (
       !this.state.collapsed &&
       <SidebarTitle
-        title="Views"
+        title="Dashboards"
         icon={<Icon type="plus" />}
         iconAction={() => { message.info('Adding new view'); }}
       />
@@ -195,7 +204,7 @@ class Sidebar extends React.Component {
           mode="inline"
           className={styles.menu}
           onSelect={this.handleSelect}
-          selectedKeys={[this.props.data.path]}
+          selectedKeys={this.getHighlighted(this.props.data.path)}
           inlineCollapsed={this.state.collapsed}>
 
           <Menu.Divider className={`${styles.divider} ${styles.dividerTop}`} />

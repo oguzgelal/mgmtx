@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Values from '../Values';
+
 class Variables extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -12,7 +14,9 @@ class Variables extends React.Component {
   }
 
   render() {
-    //return ();
+    return (
+      <Values data={this.props.data}></Values>
+    );
   }
 }
 

@@ -1,0 +1,21 @@
+@value theme: "../../themes/default.css";
+
+@value pageMenuItemFontsize from theme;
+@value pageMenuItemMargin from theme;
+
+.menuContainer {
+  border: none;
+}
+
+.menuItem {
+  padding: 0 !important;
+  margin-right: pageMenuItemMargin;
+  font-size: pageMenuItemFontsize;
+  border: none !important;
+}
+.menuItem:hover,
+.menuItem:active,
+.menuItem:focus,
+.menuItem:visited {
+  border: none !important;
+}

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Automate from '../Automate';
+
 class Triggers extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -12,7 +14,9 @@ class Triggers extends React.Component {
   }
 
   render() {
-    //return ();
+    return (
+      <Automate data={this.props.data}></Automate>
+    );
   }
 }
 

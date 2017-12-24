@@ -21,7 +21,7 @@ class PageContents extends React.Component {
 }
 
 PageContents.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.array])
 };
 
 export default PageContents;
