@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import history from '../../config/history';
 
-import { Button } from 'antd';
+import PageContents from '../../components/PageContents/PageContents';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
-class Landing extends React.Component {
+class Automate extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -16,19 +16,14 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button
-          type="primary"
-          onClick={() => { history.push('/dashboards'); }}
-        >
-          Login
-        </Button>
-      </div>
+      <PageContents>
+        <PageHeader title={`Automate`} />
+      </PageContents>
     );
   }
 }
 
-Landing.propTypes = {
+Automate.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -42,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Landing);
+)(Automate);

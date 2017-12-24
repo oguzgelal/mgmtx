@@ -1,0 +1,28 @@
+@value theme: "../../themes/default.css";
+
+@value sidebarHeaderHeight from theme;
+@value pageHeaderFontsize from theme;
+@value pageHeaderFontweight from theme;
+@value pageHeaderColor from theme;
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: sidebarHeaderHeight;
+}
+
+.header {
+  flex-grow: 1;
+  font-size: pageHeaderFontsize;
+  font-weight: pageHeaderFontweight;
+  color: pageHeaderColor;
+}
+
+.headerButtons {
+  display: flex;
+}
+
+.headerButton {
+
+}

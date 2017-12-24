@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import PageContents from '../../components/PageContents/PageContents';
+import PageHeader from '../../components/PageHeader/PageHeader';
+
 class Dashboards extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -13,7 +16,9 @@ class Dashboards extends React.Component {
 
   render() {
     return (
-      <div className="">Dashboards view</div>
+      <PageContents>
+        <PageHeader title={`Dashboards`} />
+      </PageContents>
     );
   }
 }

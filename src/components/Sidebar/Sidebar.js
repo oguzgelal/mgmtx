@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Menu, Icon, Divider, message } from 'antd';
+import { Layout, Menu, Icon, message } from 'antd';
 
+import history from '../../config/history';
 import SidebarTitle from './SidebarTitle/SidebarTitle';
 
 import styles from './Sidebar.css';
@@ -11,147 +12,212 @@ class Sidebar extends React.Component {
     super(props, context);
 
     this.state = {
-      collapsed: false
+      collapsed: false,
+      items: [
+        {
+          title: 'Entities',
+          path: '/entities',
+          icon: 'profile',
+        },
+        {
+          title: 'Collections',
+          path: '/collections',
+          icon: 'appstore-o',
+        },
+        {
+          title: 'Variables',
+          path: '/variables',
+          icon: 'book',
+        },
+        {
+          title: 'Automate',
+          path: '/automate',
+          icon: 'setting',
+        },
+      ],
+
+      dashboards: [
+        {
+          id: 'calorie-tracker',
+          title: 'Calorie Tracker',
+          group: false,
+        },
+        {
+          id: 'side-projects',
+          title: 'Side Projects',
+          group: true,
+          children: [
+            {
+              id: 'clouds-against-humanity',
+              title: 'Clouds Against Humanity',
+              group: false,
+            },
+            {
+              id: 'trackist',
+              title: 'Track.ist',
+              group: false,
+            },
+            {
+              id: 'school',
+              title: 'School',
+              group: true,
+              children: [
+                {
+                  id: 'school-works',
+                  title: 'School Works',
+                  group: false,
+                },
+                {
+                  id: 'group-projects',
+                  title: 'Group Projects',
+                  group: false,
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'email',
+          title: 'Email',
+          group: false,
+        },
+        {
+          id: 'calendar',
+          title: 'Calendar',
+          group: false,
+        },
+      ]
     };
   }
 
+  // Menu collapsed / uncollapsed
   toggleCollapse = (collapsed) => {
     const s = this.state;
     s.collapsed = !s.collapsed;
     this.setState(s);
   }
 
+  // Menu item clicked
+  handleSelect = (e) => {
+    history.push(e.key);
+  }
+
+  // Create main menu items
+  createMenuItems = (items) => {
+    if (!items) { return null; }
+    var res = [];
+
+    items.map(item => {
+      res.push(
+        <Menu.Item key={item.path}>
+          <Icon type={item.icon} />
+          <span className="nav-text">{item.title}</span>
+        </Menu.Item>
+      )
+    })
+
+    return res;
+  }
+
+  // Create dashboard items recursively
+  createDashboardItems = (dashboards) => {
+    if (!dashboards) { return null; }
+    var res = [];
+
+    dashboards.map(dashboard => {
+      if (dashboard.group) {
+        res.push(
+          <Menu.SubMenu key={dashboard.id} title={<span><Icon type="folder" /><span>{dashboard.title}</span></span>}>
+            {
+              this.createDashboardItems(dashboard.children)
+            }
+          </Menu.SubMenu>
+        );
+      }
+      else {
+        res.push(
+          <Menu.Item key={`/dashboards/${dashboard.id}`}>
+            <Icon type="picture" />
+            <span className="nav-text">{dashboard.title}</span>
+          </Menu.Item>
+        );
+      }
+    });
+
+    return res;
+  }
+
   render() {
+
+    // Sidebar header
+    const header = (
+      <div className={styles.header}>
+        {
+          !this.state.collapsed &&
+          <div className={styles.headerText}>Hi, Oguz</div>
+        }
+        <div className={styles.headerIcon} onClick={this.toggleCollapse}>
+          <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
+        </div>
+      </div>
+    );
+
+    // Sidebar main items
+    const menuItems = this.createMenuItems(this.state.items);
+
+
+    // Sidebar dashboards title
+    const dashboardsTitle = (
+      !this.state.collapsed &&
+      <SidebarTitle
+        title="Views"
+        icon={<Icon type="plus" />}
+        iconAction={() => { message.info('Adding new view'); }}
+      />
+    );
+
+    // Sidebar dashboard items
+    const dashboards = this.createDashboardItems(this.state.dashboards);
+
     return (
       <Layout.Sider
         collapsed={this.state.collapsed}
         width={styles.sidebarWidth}
-        className={styles.sidebar}
-      >
+        className={styles.sidebar}>
 
         {/* Header */}
+        {header}
 
-        <div className={styles.header}>
-          {
-            !this.state.collapsed &&
-            <div className={styles.headerText}>Hi, Oguz</div>
-          }
-          <div className={styles.headerIcon} onClick={this.toggleCollapse}>
-            <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-          </div>
-        </div>
-
-        <Divider style={{ marginTop: 0 }} className={styles.divider} />
+        {/* Sidebar Contents */}
 
         <Menu
           theme="light"
           mode="inline"
           className={styles.menu}
+          onSelect={this.handleSelect}
+          selectedKeys={[this.props.data.path]}
           inlineCollapsed={this.state.collapsed}>
 
+          <Menu.Divider className={`${styles.divider} ${styles.dividerTop}`} />
+
           {/* Components */}
+          {menuItems}
 
-          <Menu.Item key="entities">
-            <Icon type="profile" />
-            <span className="nav-text">Entities</span>
-          </Menu.Item>
-
-          <Menu.Item key="collections">
-            <Icon type="appstore-o" />
-            <span className="nav-text">Collections</span>
-          </Menu.Item>
-
-          <Menu.Item key="variables">
-            <Icon type="book" />
-            <span className="nav-text">Variables</span>
-          </Menu.Item>
-
-          <Menu.Item key="automate">
-            <Icon type="setting" />
-            <span className="nav-text">Automate</span>
-          </Menu.Item>
-
-          <Divider className={styles.divider} />
-
-          {
-            !this.state.collapsed &&
-            <SidebarTitle
-              title="Views"
-              icon={<Icon type="plus" />}
-              iconAction={() => { message.info('Adding new view'); }}
-            />
-          }
+          <Menu.Divider className={styles.divider} />
 
           {/* Dashboards */}
-
-          <Menu.Item key="i1">
-            <Icon type="picture" />
-            <span className="nav-text">Calorie Tracker</span>
-          </Menu.Item>
-
-          <Menu.SubMenu
-            key="s1"
-            title={
-              <span>
-                <Icon type="folder" />
-                <span>Side Projects</span>
-              </span>
-            }
-          >
-
-            <Menu.Item key="i2">
-              <Icon type="picture" />
-              <span className="nav-text">Clouds Against Humanity</span>
-            </Menu.Item>
-
-            <Menu.Item key="i3">
-              <Icon type="picture" />
-              <span className="nav-text">Track.ist</span>
-            </Menu.Item>
-
-            <Menu.SubMenu
-              key="s1s1"
-              title={
-                <span>
-                  <Icon type="folder" />
-                  <span>School</span>
-                </span>
-              }
-            >
-
-              <Menu.Item key="s1d1s1">
-                <Icon type="picture" />
-                <span className="nav-text">School Works</span>
-              </Menu.Item>
-
-              <Menu.Item key="s1d1s2">
-                <Icon type="picture" />
-                <span className="nav-text">Group Projects</span>
-              </Menu.Item>
-
-            </Menu.SubMenu>
-
-          </Menu.SubMenu>
-
-          <Menu.Item key="d2">
-            <Icon type="picture" />
-            <span className="nav-text">Email</span>
-          </Menu.Item>
-
-          <Menu.Item key="d3">
-            <Icon type="picture" />
-            <span className="nav-text">Calendar</span>
-          </Menu.Item>
+          {dashboardsTitle}
+          {dashboards}
 
         </Menu>
-
       </Layout.Sider>
     );
   }
 }
 
 Sidebar.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  data: PropTypes.object
 };
 
 export default Sidebar;

@@ -12,7 +12,7 @@ const Base = (props) => {
   const data = props.data || {};
 
   const sidebar = ((data.showSidebar && isLoggedIn(props.user)) ?
-    <Sidebar user={props.user} /> :
+    <Sidebar user={props.user} data={props.data} /> :
     ''
   );
 

@@ -21,7 +21,10 @@
 
 .divider {
   width: sidebarDividerWidth;
-  margin: sidebarDividerMargin 0;
+  margin: sidebarDividerMargin 0 !important;
+}
+.dividerTop {
+  margin-top: 0 !important;
 }
 
 .header {

@@ -1,0 +1,7 @@
+@value theme: "../../themes/default.css";
+
+@value pagePadding from theme;
+
+.contents {
+  padding: 0 pagePadding;
+}

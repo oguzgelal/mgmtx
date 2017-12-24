@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import history from '../../config/history';
 
-import { Button } from 'antd';
-
-class Landing extends React.Component {
+class Workflows extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -15,20 +12,11 @@ class Landing extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Button
-          type="primary"
-          onClick={() => { history.push('/dashboards'); }}
-        >
-          Login
-        </Button>
-      </div>
-    );
+    //return ();
   }
 }
 
-Landing.propTypes = {
+Workflows.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -42,4 +30,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Landing);
+)(Workflows);
