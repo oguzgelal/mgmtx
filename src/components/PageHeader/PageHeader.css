@@ -4,12 +4,14 @@
 @value pageHeaderFontsize from theme;
 @value pageHeaderFontweight from theme;
 @value pageHeaderColor from theme;
+@value pageHeaderMargin from theme;
 
 .headerWrapper {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
   height: sidebarHeaderHeight;
+  margin-top: pageHeaderMargin;
 }
 
 .header {
@@ -19,10 +21,10 @@
   color: pageHeaderColor;
 }
 
-.headerButtons {
+.headerItems {
   display: flex;
 }
 
-.headerButton {
-
+.headerItem {
+  margin-left: 0.8em;
 }

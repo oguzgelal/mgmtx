@@ -20,6 +20,7 @@
 @value pageHeaderFontsize: 32pt;
 @value pageHeaderFontweight: 500;
 @value pageHeaderColor: dark;
+@value pageHeaderMargin: 1em;
 
 @value pageMenuItemFontsize: 11.5pt;
 @value pageMenuItemMargin: 1em;
