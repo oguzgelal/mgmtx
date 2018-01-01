@@ -24,3 +24,7 @@
 
 @value pageMenuItemFontsize: 11.5pt;
 @value pageMenuItemMargin: 1em;
+
+@value cardBodyPadding: 0px 3px 0px 15px;
+@value cardHeadPadding: 0 15px;
+@value cardHeadBackground: #fafafa;

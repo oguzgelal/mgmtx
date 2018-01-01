@@ -1,0 +1,11 @@
+.scroller {
+  visibility: visible;
+}
+
+.scrollerHidden :global(.ps__scrollbar-x-rail) {
+  visibility: hidden !important;
+}
+
+.scrollerHidden :global(.ps__scrollbar-y-rail) {
+  visibility: hidden !important;
+}

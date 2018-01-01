@@ -5,12 +5,39 @@ import { bindActionCreators } from 'redux';
 
 import PageContents from '../../components/PageContents/PageContents';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import EntityList from '../../components/Entity/EntityList/EntityList';
+
+import { getEntityObject } from '../../utils/mock';
 
 class Entities extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
+
+      entities: [
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+        getEntityObject(),
+      ],
+
     };
   }
 
@@ -18,6 +45,7 @@ class Entities extends React.Component {
     return (
       <PageContents>
         <PageHeader title={`Entities`} />
+        <EntityList cards={this.state.entities} />
       </PageContents>
     );
   }

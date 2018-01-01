@@ -1,0 +1,9 @@
+@value theme: "../../../themes/default.css";
+
+.list {
+  margin-bottom: 50px;
+}
+
+.listItem {
+  margin: 0 !important;
+}
