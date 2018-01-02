@@ -19,10 +19,10 @@ class EntityList extends React.Component {
       <List
         className={styles.list}
         grid={{ gutter: 0, column: 1 }}
-        dataSource={this.props.cards}
-        renderItem={card => (
+        dataSource={this.props.entities}
+        renderItem={entity => (
           <List.Item className={styles.listItem}>
-            <EntityCard card={card} />
+            <EntityCard entity={entity} />
           </List.Item>
         )}
       />
@@ -31,7 +31,7 @@ class EntityList extends React.Component {
 }
 
 EntityList.propTypes = {
-  cards: PropTypes.array.isRequired,
+  entities: PropTypes.array.isRequired,
 };
 
 export default EntityList;

@@ -5,16 +5,14 @@ import cx from 'classnames';
 import { Icon, Tooltip, List, Button } from 'antd';
 import MxCard from '../../MxCard/MxCard';
 import EntityItemList from '../EntityItemList/EntityItemList';
-import styles from './EntityCard.css';
-
 import Scroller from '../../../components/Scroller/Scroller';
+import styles from './EntityCard.css';
 
 class EntityCard extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      active: false,
     };
   }
 
@@ -34,7 +32,7 @@ class EntityCard extends React.Component {
     );
 
     cardActions.push(
-      <Tooltip title={`Insert ${this.props.card.title} into...`}>
+      <Tooltip title={`Insert ${this.props.entity.title} into...`}>
         <Icon type="file-add" />
       </Tooltip>
     );
@@ -54,11 +52,11 @@ class EntityCard extends React.Component {
       <MxCard
         actions={cardActions}
         extra={cardExtra}
-        cardTitle={this.props.card.title}
-        cardDesc={this.props.card.description}
+        cardTitle={this.props.entity.title}
+        cardDesc={this.props.entity.description}
       >
         <Scroller hidden class={styles.scroll}>
-          <EntityItemList items={this.props.card.items} />
+          <EntityItemList items={this.props.entity.items} />
         </Scroller>
       </MxCard>
     );
@@ -66,7 +64,7 @@ class EntityCard extends React.Component {
 }
 
 EntityCard.propTypes = {
-  card: PropTypes.object.isRequired,
+  entity: PropTypes.object.isRequired,
 };
 
 export default EntityCard;

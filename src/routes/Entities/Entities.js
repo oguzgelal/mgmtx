@@ -37,7 +37,7 @@ class Entities extends React.Component {
     return (
       <PageContents>
         <PageHeader title={`Entities`} />
-        <EntityList cards={this.state.entities} />
+        <EntityList entities={this.state.entities} />
       </PageContents>
     );
   }

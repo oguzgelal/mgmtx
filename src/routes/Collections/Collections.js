@@ -5,19 +5,35 @@ import { bindActionCreators } from 'redux';
 
 import PageContents from '../../components/PageContents/PageContents';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import CollectionList from '../../components/Collection/CollectionList/CollectionList';
+
+import { getCollectionObject } from '../../utils/mock';
 
 class Collections extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
+
+      collections: [
+        getCollectionObject(),
+        getCollectionObject(),
+        getCollectionObject(),
+        getCollectionObject(),
+        getCollectionObject(),
+        getCollectionObject(),
+        getCollectionObject(),
+      ]
+
     };
   }
 
   render() {
+
     return (
       <PageContents>
         <PageHeader title={`Collections`} />
+        <CollectionList collections={this.state.collections} />
       </PageContents>
     );
   }

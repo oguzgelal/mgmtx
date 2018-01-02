@@ -1,0 +1,17 @@
+@value theme: "../../../themes/default.css";
+
+.list {
+  margin-top: 12px;
+}
+
+.subIcon {
+  margin-right: 10px;
+  display: inline-block;
+}
+.subIcon:hover {
+  cursor: pointer;
+}
+
+.subTitle {
+  display: inline-block;
+}
