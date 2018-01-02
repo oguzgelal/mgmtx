@@ -5,6 +5,7 @@
 
 .menuContainer {
   border: none;
+  background-color: transparent;
 }
 
 .menuItem {

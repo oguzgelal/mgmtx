@@ -3,7 +3,7 @@
 @value darkGray: #e8e8e8;
 @value dark: #000;
 
-@value pageBackground: light;
+@value pageBackground: rgb(244, 245, 249);
 
 @value sidebarWidth: 280;
 @value sidebarHeaderHeight: 7em;
@@ -26,5 +26,6 @@
 @value pageMenuItemMargin: 1em;
 
 @value cardBodyPadding: 0px 3px 0px 15px;
-@value cardHeadPadding: 0 15px;
-@value cardHeadBackground: #fafafa;
+@value cardHeadPaddingHorizontal: 0 15px;
+@value cardHeadPaddingVertical: 15px 0;
+@value cardHeadBackground: white;

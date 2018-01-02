@@ -28,14 +28,6 @@ class Entities extends React.Component {
         getEntityObject(),
         getEntityObject(),
         getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
-        getEntityObject(),
       ],
 
     };

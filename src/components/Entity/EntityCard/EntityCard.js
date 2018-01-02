@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import { Card, Icon, Tooltip, List, Button } from 'antd';
+import { Icon, Tooltip, List, Button } from 'antd';
+import MxCard from '../../MxCard/MxCard';
 import EntityItemList from '../EntityItemList/EntityItemList';
 import styles from './EntityCard.css';
 
@@ -42,6 +43,7 @@ class EntityCard extends React.Component {
       <Tooltip title="New Item">
         <Button
           size="small"
+          type="primary"
           shape="circle"
           icon="plus"
         />
@@ -49,23 +51,15 @@ class EntityCard extends React.Component {
     );
 
     return (
-      <Card
+      <MxCard
         title={this.props.card.title}
         actions={cardActions}
         extra={cardExtra}
-        onClick={() => {
-          let activeState = this.state.active;
-          this.setState({ active: !activeState });
-        }}
-        className={cx(
-          styles.card,
-          { [styles.active]: this.state.active }
-        )}
       >
         <Scroller hidden class={styles.scroll}>
           <EntityItemList items={this.props.card.items} />
         </Scroller>
-      </Card>
+      </MxCard>
     );
   }
 }

@@ -7,7 +7,6 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import styles from './Scroller.css';
 
 const Scroller = (props) => {
-  console.log('asdasdasd', props);
   const scrollerClassnames = classNames(
     styles.scroller,
     { [styles.scrollerHidden]: props.hidden },
