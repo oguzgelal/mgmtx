@@ -7,6 +7,7 @@ export const getEntityObject = () => {
   const obj = {
     id: `entity-${Faker.random.number()}`,
     title: `${Faker.company.catchPhraseAdjective()} ${Faker.company.catchPhraseNoun()}`,
+    description: Faker.random.number(1) === 1 ? Faker.lorem.sentence() : '',
     items: [],
   };
 

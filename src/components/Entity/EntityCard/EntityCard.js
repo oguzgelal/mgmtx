@@ -52,9 +52,10 @@ class EntityCard extends React.Component {
 
     return (
       <MxCard
-        title={this.props.card.title}
         actions={cardActions}
         extra={cardExtra}
+        cardTitle={this.props.card.title}
+        cardDesc={this.props.card.description}
       >
         <Scroller hidden class={styles.scroll}>
           <EntityItemList items={this.props.card.items} />

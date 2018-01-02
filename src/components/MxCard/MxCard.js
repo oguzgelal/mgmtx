@@ -15,10 +15,20 @@ class MxCard extends React.Component {
   }
 
   render() {
+
+    const cardTitle = (
+      <Card.Meta
+        title={this.props.cardTitle}
+        description={this.props.cardDesc}
+      />
+    );
+
     return (
       <Card
-        {...this.props}
+        title={cardTitle}
         bordered={false}
+        actions={this.props.actions}
+        extra={this.props.extra}
         className={cx(
           styles.card,
           { [styles.active]: this.state.active }
@@ -37,10 +47,10 @@ class MxCard extends React.Component {
 
 MxCard.propTypes = {
   children: PropTypes.object,
-  cardExtra: PropTypes.object,
-  cardActions: PropTypes.array,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
+  actions: PropTypes.array,
+  extra: PropTypes.object,
+  cardTitle: PropTypes.string,
+  cardDesc: PropTypes.string,
 };
 
 export default MxCard;

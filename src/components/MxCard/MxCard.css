@@ -26,7 +26,13 @@
   padding: cardHeadPaddingHorizontal !important;
   min-height: inherit !important;
 }
-
+.card :global(.ant-card-meta-title) {
+  margin-bottom: 0 !important;
+  font-weight: normal;
+}
+.card :global(.ant-card-meta-description) {
+  font-size: 10pt;
+}
 .card :global(.ant-card-head):hover {
   cursor: pointer;
   background-color: rgba(244, 245, 249, 0.5);
@@ -37,7 +43,8 @@
 }
 
 .card :global(.ant-card-head-title) {
-  padding: cardHeadPaddingVertical;
+  display: flex;
+  align-items: center;
   font-weight: normal;
   border: none;
   color: inherit;
@@ -45,7 +52,8 @@
 }
 
 .card :global(.ant-card-extra) {
-  padding: cardHeadPaddingVertical !important;
+  display: flex;
+  align-items: center;
 }
 
 
