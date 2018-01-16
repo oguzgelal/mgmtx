@@ -26,7 +26,7 @@ class EntityItemList extends React.Component {
       </Tooltip>
     );
     listItemActions.push(
-      <Tooltip title={`Insert ${item.title} into...`}>
+      <Tooltip title={`Insert ${item.title} into...`} placement="left">
         <Icon type="file-add" />
       </Tooltip>
     );
@@ -41,7 +41,7 @@ class EntityItemList extends React.Component {
         className={styles.list}
         dataSource={this.props.items}
         renderItem={item => (
-          <List.Item actions={this.renderActions(item)} placement="left">
+          <List.Item actions={this.renderActions(item)}>
             {item.title}
           </List.Item>
         )}
