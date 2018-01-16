@@ -12,13 +12,35 @@ class CollectionItemList extends React.Component {
     };
   }
 
+  renderActions(item) {
+    const listItemActions = [];
+
+    listItemActions.push(
+      <Tooltip title="Edit">
+        <Icon type="edit" />
+      </Tooltip>
+    );
+    listItemActions.push(
+      <Tooltip title="Delete">
+        <Icon type="delete" />
+      </Tooltip>
+    );
+    listItemActions.push(
+      <Tooltip title={`Insert ${item.data.title} into...`} placement="left">
+        <Icon type="file-add" />
+      </Tooltip>
+    );
+
+    return listItemActions;
+  }
+
   render() {
     return (
       <List
         className={styles.list}
         dataSource={this.props.items}
         renderItem={item => (
-          <List.Item className={styles.subList}>
+          <List.Item className={styles.subList} actions={this.renderActions(item)}>
 
             <Tooltip title={item.type === 'entity' ? 'Entity' : 'Collection'}>
               <div className={styles.subIcon}>

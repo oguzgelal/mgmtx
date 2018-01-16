@@ -41,7 +41,7 @@ class EntityItemList extends React.Component {
         className={styles.list}
         dataSource={this.props.items}
         renderItem={item => (
-          <List.Item actions={this.renderActions(item)}>
+          <List.Item actions={this.renderActions(item)} placement="left">
             {item.title}
           </List.Item>
         )}
