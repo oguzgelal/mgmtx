@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, Tooltip, List, Button } from 'antd';
+import { Icon, Tooltip, Button, Tabs } from 'antd';
 import styles from './CollectionCard.css';
 import MxCard from '../../MxCard/MxCard';
 import Scroller from '../../../components/Scroller/Scroller';
@@ -21,19 +21,19 @@ class CollectionCard extends React.Component {
     cardActions.push(
       <Tooltip title="Edit">
         <Icon type="edit" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     cardActions.push(
       <Tooltip title="Delete">
         <Icon type="delete" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     cardActions.push(
       <Tooltip title={`Insert ${this.props.collection.title} into...`}>
         <Icon type="file-add" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     const cardExtra = (
@@ -53,10 +53,24 @@ class CollectionCard extends React.Component {
         extra={cardExtra}
         cardTitle={this.props.collection.title}
         cardDesc={this.props.collection.description}
+        className={styles.card}
       >
-        <Scroller hidden class={styles.scroll}>
-          <CollectionItemList items={this.props.collection.items} />
-        </Scroller>
+        <Tabs defaultActiveKey="included" className={styles.tabs}>
+          <Tabs.TabPane tab="Included" key="included">
+            <div className="card-body">
+              <Scroller hidden class={styles.scroll}>
+                <CollectionItemList items={this.props.collection.items.included} />
+              </Scroller>
+            </div>
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="Excluded" key="excluded">
+            <div className="card-body">
+              <Scroller hidden class={styles.scroll}>
+                <CollectionItemList items={this.props.collection.items.excluded} />
+              </Scroller>
+            </div>
+          </Tabs.TabPane>
+        </Tabs>
       </MxCard>
     );
   }

@@ -1,5 +1,14 @@
 @value theme: "../../../themes/default.css";
 
+@value cardHeadBoxShadow from theme;
+
 .scroll {
-  height: 200px !important;
+  max-height: 200px !important;
+}
+
+.tabs :global(.ant-tabs-bar) {
+  margin-bottom: 0 !important;
+  background-color: white;
+  border: none;
+  box-shadow: cardHeadBoxShadow;
 }

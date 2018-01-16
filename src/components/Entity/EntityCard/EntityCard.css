@@ -1,5 +1,5 @@
 @value theme: "../../../themes/default.css";
 
 .scroll {
-  height: 200px !important;
+  max-height: 200px !important;
 }

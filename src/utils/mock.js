@@ -29,31 +29,50 @@ export const getCollectionObject = (repeat = true) => {
     id: `collection-${Faker.random.number()}`,
     title: `${Faker.company.catchPhraseAdjective()} ${Faker.company.catchPhraseNoun()}`,
     description: Faker.random.number(1) === 1 ? Faker.lorem.sentence() : '',
-    items: [],
+    items: {
+      included: [],
+      excluded: [],
+    },
+  };
+
+  // Add entities or other collections to collection as included
+  const includedCount = Faker.random.number(20);
+  for (let i = 0; i < includedCount; i += 1) {
+    const rand = Faker.random.number(1);
+    if (rand === 1 && repeat) {
+      // Add a collection item
+      obj.items.included.push({
+        type: 'collection',
+        data: getCollectionObject(false),
+      });
+    } else {
+      // Add an entity item
+      obj.items.included.push({
+        type: 'entity',
+        data: getEntityObject(),
+      });
+    }
   }
 
-  // Add entities or other collections to collection
-  const itemCount = Faker.random.number(8);
-  for (let i = 0; i < itemCount; i++) {
-    let rand = Faker.random.number(1);
-
-    // Add a collection item
-    if (rand == 1 && repeat) {
-      obj.items.push({
+  // Add entities or other collections to collection as excluded
+  const excludedCount = Faker.random.number(10);
+  for (let i = 0; i < excludedCount; i += 1) {
+    const rand = Faker.random.number(1);
+    if (rand === 1 && repeat) {
+      // Add a collection item
+      obj.items.excluded.push({
         type: 'collection',
-        data: getCollectionObject(false)
+        data: getCollectionObject(false),
       });
-    }
-
-    // Add an entity item
-    else {
-      obj.items.push({
+    } else {
+      // Add an entity item
+      obj.items.excluded.push({
         type: 'entity',
-        data: getEntityObject()
+        data: getEntityObject(),
       });
     }
-
   }
 
   return obj;
-}
+};
+

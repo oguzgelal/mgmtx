@@ -10,12 +10,20 @@ class MxCard extends React.Component {
     super(props, context);
 
     this.state = {
-      active: false,
+      active: !!props.active,
     };
+
+    this.cardToggled = this.cardToggled.bind(this);
+  }
+
+  cardToggled(e) {
+    // TODO: Fix this
+    if (e.target.className === 'ant-card-head-title') {
+      this.setState({ active: !this.state.active });
+    }
   }
 
   render() {
-
     const cardTitle = (
       <Card.Meta
         title={this.props.cardTitle}
@@ -31,13 +39,9 @@ class MxCard extends React.Component {
         extra={this.props.extra}
         className={cx(
           styles.card,
-          { [styles.active]: this.state.active }
+          { [styles.active]: this.state.active },
         )}
-        onClick={() => {
-          this.setState({
-            active: !this.state.active
-          });
-        }}
+        onClick={this.cardToggled}
       >
         {this.props.children}
       </Card>
@@ -51,6 +55,7 @@ MxCard.propTypes = {
   extra: PropTypes.object,
   cardTitle: PropTypes.string,
   cardDesc: PropTypes.string,
+  active: PropTypes.bool,
 };
 
 export default MxCard;

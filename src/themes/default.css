@@ -25,6 +25,8 @@
 @value pageMenuItemFontsize: 11.5pt;
 @value pageMenuItemMargin: 1em;
 
+@value cardBoxShadow: 0 5px 5px rgba(0,0,0,0.01), 0 5px 5px rgba(0,0,0,0.01);
+@value cardHeadBoxShadow: 0px 3px 5px rgba(0,0,0,0.05);
 @value cardBodyPadding: 0px 3px 0px 15px;
 @value cardHeadPaddingHorizontal: 0 15px;
 @value cardHeadPaddingVertical: 15px 0;

@@ -22,19 +22,19 @@ class EntityCard extends React.Component {
     cardActions.push(
       <Tooltip title="Edit">
         <Icon type="edit" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     cardActions.push(
       <Tooltip title="Delete">
         <Icon type="delete" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     cardActions.push(
       <Tooltip title={`Insert ${this.props.entity.title} into...`}>
         <Icon type="file-add" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     const cardExtra = (
@@ -55,9 +55,11 @@ class EntityCard extends React.Component {
         cardTitle={this.props.entity.title}
         cardDesc={this.props.entity.description}
       >
-        <Scroller hidden class={styles.scroll}>
-          <EntityItemList items={this.props.entity.items} />
-        </Scroller>
+        <div className="card-body">
+          <Scroller hidden class={styles.scroll}>
+            <EntityItemList items={this.props.entity.items} />
+          </Scroller>
+        </div>
       </MxCard>
     );
   }

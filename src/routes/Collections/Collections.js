@@ -23,16 +23,14 @@ class Collections extends React.Component {
         getCollectionObject(),
         getCollectionObject(),
         getCollectionObject(),
-      ]
-
+      ],
     };
   }
 
   render() {
-
     return (
       <PageContents>
-        <PageHeader title={`Collections`} />
+        <PageHeader title="Collections" />
         <CollectionList collections={this.state.collections} />
       </PageContents>
     );
@@ -43,11 +41,11 @@ Collections.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  //authors: state.authors
+  // authors: state.authors
 });
 
-const mapDispatchToProps = dispatch => ({
-  //actions: bindActionCreators(..., dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  // actions: bindActionCreators(..., dispatch)
 });
 
 export default connect(

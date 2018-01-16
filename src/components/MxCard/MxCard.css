@@ -5,6 +5,7 @@
 @value cardHeadPaddingVertical from theme;
 @value cardHeadBackground from theme;
 @value cardExtraPadding from theme;
+@value cardBoxShadow from theme;
 
 .scroll {
   height: 200px !important;
@@ -14,12 +15,16 @@
   width: 100%;
   margin: 0 !important;
   margin-top: -1px !important;
-  box-shadow: 0 5px 5px rgba(0,0,0,0.01), 0 5px 5px rgba(0,0,0,0.01);
+  box-shadow: cardBoxShadow;
+}
+
+.card :global(.card-body) {
+  padding: cardBodyPadding !important;
 }
 
 .card :global(.ant-card-body) {
   display: none;
-  padding: cardBodyPadding !important;
+  padding: 0 !important;
 }
 .card :global(.ant-card-head) {
   background-color: cardHeadBackground;
