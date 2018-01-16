@@ -55,7 +55,7 @@ class CollectionCard extends React.Component {
         cardDesc={this.props.collection.description}
         className={styles.card}
       >
-        <Tabs defaultActiveKey="included" className={styles.tabs}>
+        <Tabs defaultActiveKey="included" className={styles.tabs} animated>
           <Tabs.TabPane tab="Included" key="included">
             <div className="card-body">
               <Scroller hidden class={styles.scroll}>

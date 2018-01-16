@@ -18,17 +18,17 @@ class CollectionItemList extends React.Component {
     listItemActions.push(
       <Tooltip title="Edit">
         <Icon type="edit" />
-      </Tooltip>
+      </Tooltip>,
     );
     listItemActions.push(
       <Tooltip title="Delete">
         <Icon type="delete" />
-      </Tooltip>
+      </Tooltip>,
     );
     listItemActions.push(
       <Tooltip title={`Insert ${item.data.title} into...`} placement="left">
         <Icon type="file-add" />
-      </Tooltip>
+      </Tooltip>,
     );
 
     return listItemActions;

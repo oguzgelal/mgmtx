@@ -12,3 +12,8 @@
   border: none;
   box-shadow: cardHeadBoxShadow;
 }
+
+.tabs :global(.ant-tabs-tab) {
+  margin: 0 !important;
+  margin-right: 10px !important;
+}
